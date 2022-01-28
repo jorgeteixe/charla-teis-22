@@ -15,8 +15,9 @@ services:
     container_name: client
     build:
       context: .
-    tty: true
-    command: "watch -n 1 curl server:8090/hello"
+    volumes:
+      - ./script.sh:/script.sh:ro
+    command: "/script.sh"
     restart: unless-stopped
     networks:
       - smr
