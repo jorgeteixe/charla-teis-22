@@ -1,0 +1,14 @@
+docker run -it --expose 80 -p 80:8090 --rm golang:1.1
+
+# hacer pasos Dockerfile.simple
+
+docker cp /src <container id>:/dst
+
+
+
+docker build . -f Dockerfile.simple -t mygoapp:simple
+
+docker build . -f Dockerfile.multistage -t mygoapp:multistage
+
+docker image ls mygoapp
+
