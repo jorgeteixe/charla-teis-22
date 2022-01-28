@@ -46,3 +46,5 @@ docker run --rm -it --net=smr debian
 
 apt update && apt install netcat -y
 
+nc -l -p 80
+nc server 80
