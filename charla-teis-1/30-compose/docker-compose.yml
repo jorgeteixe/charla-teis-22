@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  webserver:
+    container_name: mygoapp
+    build:
+      context: ../20-dockerfile/go/
+      dockerfile: Dockerfile.multistage
+    restart: unless-stopped
+    networks:
+      smr:
+        aliases:
+          - "server"
+  webclient:
+    container_name: client
+    build:
+      context: .
+    tty: true
+    command: "watch -n 1 curl server:8090/hello"
+    restart: unless-stopped
+    networks:
+      - smr
+
+networks:
+  smr:
+    name: 'smr'

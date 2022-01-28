@@ -1,9 +1,12 @@
-docker run -it --expose 80 -p 80:8090 --rm golang:1.1
-
+# SIMPLE
 # hacer pasos Dockerfile.simple
+
+docker run -it --expose 80 -p 80:8090 --rm golang:1.1
 
 docker cp /src <container id>:/dst
 
+# MULTISTAGE
+# explicar lenguaje compilado / con el binario es suficiente
 
 
 docker build . -f Dockerfile.simple -t mygoapp:simple
@@ -12,3 +15,10 @@ docker build . -f Dockerfile.multistage -t mygoapp:multistage
 
 docker image ls mygoapp
 
+# mostrar ventajas
+# - tamaño
+# - ocultamos código fuente
+# este último contenedor no tiene dentro el código
+# podríamos pensar en el primero y hacer rm "main.go"
+# pero por como funciona docker eso es como no hacer
+# nada porque sigue estando
