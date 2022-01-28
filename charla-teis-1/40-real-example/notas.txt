@@ -1,0 +1,12 @@
+# añadir .bashrc
+
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+# install docker + docker-compose
+
+# crear volumen / montar + fstab
+
+# crear .env, Caddyfile y docker-compose.yml
+
+# docker-compose up 
