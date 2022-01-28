@@ -1,0 +1,48 @@
+
+# primer ejemplo
+
+docker run -it debian
+
+cat /etc/os-release
+
+
+
+# ejemplo ejecutar comando
+
+docker run debian cat /etc/os-release
+
+
+
+# miro que estan sin borrar con
+
+docker ps -a
+
+# enseño nombres y asigno nombre concreto
+
+docker run --name smr debian cat /etc/os-release
+
+# y que hacer si quiero que se borren automáticamente
+
+docker run --name borrado --rm debian cat /etc/os-release
+
+
+
+# como asignar working directory
+
+docker run --rm -w /test -it debian
+
+
+# volvemos al primero pero le ponemos un volumen
+
+docker run --rm -v `pwd`/compartida:/test -w /test -it debian
+
+
+# talk to each other
+
+docker network create smr
+
+docker run --rm -it --expose 80 --net=smr --net-alias=server debian
+docker run --rm -it --net=smr debian
+
+apt update && apt install netcat -y
+
