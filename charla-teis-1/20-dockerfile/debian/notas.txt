@@ -1,0 +1,11 @@
+docker build . -t mydebian:1
+
+docker run --rm -it --expose 80 --net=smr --net-alias=server mydebian:1
+
+docker run --rm -it --net=smr mydebian:1
+
+nc -l -p 80
+nc server 80
+
+dig server
+ifconfig
