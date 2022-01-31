@@ -17,6 +17,7 @@ spec:
       containers:
       - name: goversions-v1
         image: jorgeteixe/goversions:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 8090
         resources:
