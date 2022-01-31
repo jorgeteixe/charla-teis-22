@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: versions-v2-deployment
+  labels:
+    app: versions-v2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: versions-v2
+  template:
+    metadata:
+      labels:
+        app: versions-v2
+    spec:
+      containers:
+      - name: goversions-v2
+        image: jorgeteixe/goversions:v2
+        ports:
+        - containerPort: 8090
