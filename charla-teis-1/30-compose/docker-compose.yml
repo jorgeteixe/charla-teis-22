@@ -12,9 +12,9 @@ services:
   webclient:
     container_name: client
     image: jorgeteixe/webclient:latest
+    command: "/script.sh"
     volumes:
       - ./script.sh:/script.sh:ro
-    command: "/script.sh"
     restart: unless-stopped
     networks:
       - smr
