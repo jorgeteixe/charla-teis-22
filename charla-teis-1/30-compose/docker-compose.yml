@@ -4,7 +4,6 @@ services:
   webserver:
     container_name: mygoapp
     image: jorgeteixe/goapp:simple
-    restart: unless-stopped
     networks:
       smr:
         aliases:
@@ -15,7 +14,6 @@ services:
     command: "/script.sh"
     volumes:
       - ./script.sh:/script.sh:ro
-    restart: unless-stopped
     networks:
       - smr
 
