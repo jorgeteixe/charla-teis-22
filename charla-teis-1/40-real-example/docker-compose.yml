@@ -11,6 +11,8 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+    networks:
+      - wordpress_smr
 
   wordpress:
     depends_on:
@@ -24,6 +26,8 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+    networks:
+      - wordpress_smr
 
   caddy:
     depends_on:
@@ -36,3 +40,5 @@ services:
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ${STORAGE?err}/caddy:/config
+    networks:
+      - wordpress_smr
