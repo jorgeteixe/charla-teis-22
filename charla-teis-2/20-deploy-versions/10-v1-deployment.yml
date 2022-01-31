@@ -19,3 +19,17 @@ spec:
         image: jorgeteixe/goversions:v1
         ports:
         - containerPort: 8090
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: versions-v1-service
+spec:
+  selector:
+    app: versions-v1
+  ports:
+    - port: 8090
