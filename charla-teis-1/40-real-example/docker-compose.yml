@@ -42,3 +42,7 @@ services:
       - ./caddy:/config
     networks:
       - wordpress_smr
+
+networks:
+  wordpress_smr:
+    name: wordpress_smr
