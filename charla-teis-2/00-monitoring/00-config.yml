@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: elastic-monitor
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  namespace: elastic-monitor
+  name: elastic-cloud
+type: Opaque
+data:
+  id: Y2hhcmxhcy10ZWlzOlpYVXRkMlZ6ZEMweExtRjNjeTVtYjNWdVpDNXBieVEzTmpNMU5qUTBNelkzTnpRMFpERTRPVFV4TlRGaU5EQmhZalkwWXpOaE55UXdaamMwT1RVeFltTmxNMk0wTWpWaE9ETTFaamszTVdVMU1EVXlNalU1WkE9PQ==
+  auth: ZWxhc3RpYzpWRnl4MkpLNWlwTlVUVjNuSnBHTk9vcko=
