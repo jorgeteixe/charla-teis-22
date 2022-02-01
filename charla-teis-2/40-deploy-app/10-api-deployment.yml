@@ -47,6 +47,14 @@ spec:
           requests:
             memory: "64Mi"
             cpu: "100m"
+        livenessProbe:
+          httpGet:
+            path: /ok
+            port: 8090
+        readinessProbe:
+          httpGet:
+            path: /ok
+            port: 8090
 ---
 kind: Service
 apiVersion: v1
