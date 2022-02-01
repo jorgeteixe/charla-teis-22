@@ -1,6 +1,6 @@
 FROM debian
 
-RUN apt update
-RUN apt install curl -y
+RUN apt-get update
+RUN apt-get install curl -y
 
 CMD [ "bash" ]
