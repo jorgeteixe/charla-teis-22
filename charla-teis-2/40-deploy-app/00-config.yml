@@ -13,4 +13,4 @@ metadata:
   name: go-api-secret
 type: Opaque
 data:
-  mysql_pass: YWJjMTIzLgo=
+  mysql_pass: YWJjMTIzLg==

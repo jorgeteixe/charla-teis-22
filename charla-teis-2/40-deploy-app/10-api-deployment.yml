@@ -18,6 +18,11 @@ spec:
       - name: go-api
         image: jorgeteixe/goexampleapi:latest
         env:
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: go-api-secret
+              key: mysql_pass
         - name: MYSQL_HOST
           valueFrom:
             configMapKeyRef:
@@ -33,11 +38,6 @@ spec:
             configMapKeyRef:
               name: go-api-config
               key: mysql_user
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: go-api-secret
-              key: mysql_pass
         ports:
         - containerPort: 8090
         resources:
