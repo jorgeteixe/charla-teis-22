@@ -107,11 +107,11 @@ func postHandler(w http.ResponseWriter, r *http.Request) {
 func okHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	_, err := config.DB.Query("SELECT 1")
+	// _, err := config.DB.Query("SELECT 1")
 
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	json.NewEncoder(w).Encode(Status{Status: "ok"})
 }
