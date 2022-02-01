@@ -42,8 +42,11 @@ spec:
         - containerPort: 8090
         resources:
           limits:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: "128Mi"
+            cpu: "200m"
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
 ---
 kind: Service
 apiVersion: v1
