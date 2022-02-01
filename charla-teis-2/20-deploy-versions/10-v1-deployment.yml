@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: versions-v1-deployment
+  name: versions-v1-deployment      #
   labels:
     app: versions-v1
 spec:
-  replicas: 2
+  replicas: 2                       #
   selector:
     matchLabels:
       app: versions-v1
@@ -13,11 +13,10 @@ spec:
     metadata:
       labels:
         app: versions-v1
-    spec:
+    spec:                           #
       containers:
       - name: goversions-v1
         image: jorgeteixe/goversions:v1
-        imagePullPolicy: Always
         ports:
         - containerPort: 8090
         resources:
