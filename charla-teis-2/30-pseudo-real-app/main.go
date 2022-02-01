@@ -4,8 +4,10 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"runtime"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/jorgeteixe/charla-teis-22/charla-teis-2/30-pseudo-real-app/config"
@@ -114,10 +116,33 @@ func okHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(Status{Status: "ok"})
 }
 
+func workHandler(w http.ResponseWriter, r *http.Request) {
+	done := make(chan int)
+
+	for i := 0; i < runtime.NumCPU(); i++ {
+		go func() {
+			for {
+				select {
+				case <-done:
+					return
+				default:
+				}
+			}
+		}()
+	}
+
+	time.Sleep(time.Second * 2)
+	close(done)
+
+	json.NewEncoder(w).Encode(Status{Status: "ok"})
+}
+
 func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/ok", okHandler).Methods("GET")
+
+	r.HandleFunc("/work", workHandler).Methods("GET")
 
 	r.HandleFunc("/{id:[0-9]+}", getByIdHandler).Methods("GET")
 
