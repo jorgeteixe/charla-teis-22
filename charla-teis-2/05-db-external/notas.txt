@@ -1,0 +1,1 @@
+Estos archivos estaban en otro servidor externo y no usando kubernetes sino directamente docker-compose.

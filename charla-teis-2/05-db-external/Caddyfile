@@ -1,0 +1,3 @@
+db.jtei.io
+
+reverse_proxy phpmyadmin:80
